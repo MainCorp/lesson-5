@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Урок 5 (Введение в селекторы)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+
+<body class="shower list">
+    <header class="caption">
+        <h1>Урок 5</h1>
+        <p>(Введение в селекторы)</p>
+    </header>
+
+    <section class="slide" id="promo">
+        <h2>Введение в селекторы!</h2>
+        <p>Автор урока <a href="https://gethelpers.ru/professionals/ipopal" target="_blank">Иван Попаль</a></p>
+        <figure>
+            <img class="cover cover__promo" src="pictures/cover.jpg">
+        </figure>
+        <style>
+            #promo {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            #promo h2 {
+                margin: 0 0 0;
+                color: white;
+                text-align: center;
+                font-size: 70px;
+                text-shadow: 0 0 20px black;
+            }
+            
+            #promo p {
+                margin: 10px 0 0;
+                text-align: center;
+                color: white;
+                font-style: italic;
+                font-size: 20px;
+                text-shadow: 0 0 20px black;
+            }
+            
+            #promo p a {
+                color: white;
+            }
+            
+            #promo img.cover__promo {
+                filter: brightness(0.8);
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="plan">
+        <h2>План урока:</h2>
+        <ol>
+            <li>Введение в HTML;</li>
+            <li class="next">Введение в CSS;
+                <ul>
+                    <li class="next">Селекторы;</li>
+                </ul>
+            </li>
+            <li class="next">Практика на <a href="https://codepen.io/" target="_blank">codepen.io</a></li>
+            <li class="next">Практика на Геткурс</li>
+            <li class="next">Доп. материалы</li>
+            <li class="next">Тестирование</li>
+        </ol>
+    </section>
+
+    <section class="slide  slide-html" id="slide-html-01">
+        <h2 class="shout grow">HTML - язык разметки.</h2>
+
+        <figure>
+            <img class="cover cover__promo" src="pictures/cover-html.jpg">
+        </figure>
+
+        <style>
+            .slide-html .shout {
+                font-size: 85px;
+            }
+            
+            #slide-html-01 {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            #slide-html-01 img.cover__promo {
+                filter: brightness(0.8);
+            }
+            
+            #slide-html-01 h2 {
+                margin: 0 0 0;
+                color: white;
+                text-align: center;
+                text-shadow: 0 0 20px black;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-html-img-01">
+        <figure>
+            <img class="cover cover__promo" src="pictures/html/1.png">
+        </figure>
+    </section>
+
+    <section class="slide" id="slide-html-img-02">
+        <figure>
+            <img class="cover cover__promo" src="pictures/html/2.png">
+        </figure>
+    </section>
+
+    <section class="slide  slide-html" id="slide-html-02">
+        <h2>Теги бывают:</h2>
+        <ol>
+            <li>Одиночные;</li>
+            <li class="next">Парные:
+                <ul>
+                    <li class="next">У парных тегов есть открытый и закрытый тег;</li>
+                    <li class="next">Внутри парных тегов можно добавлять ещё теги. </li>
+                </ul>
+            </li>
+        </ol>
+        <!-- <p class="next">А теперь давайте посмотрим, как это можно реализовать.</p> -->
+
+        <style>
+            .slide-html li {
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+            
+            .slide-html p {
+                color: #999;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-html-code-01">
+        <h2>Одиночные теги:</h2>
+        <pre>
+            <code>&lt;mark src="" width="" height=""&gt;</code>
+            <code>&lt;input id="" class="" name=""&gt;</code>
+        </pre>
+
+        <h2>Парные теги:</h2>
+        <pre>
+            <code class="mark">&lt;div&gt; какой-то текст &lt;/div&gt;</code>
+            <code class="mark">&lt;p&gt; какой-то &lt;i&gt;очень интересный&lt;/i&gt; текст &lt;/p&gt;</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            .site-link--code pre code {
+                font-size: 18px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-html-code-02">
+        <h2>Правильный пример вложенности:</h2>
+        <pre>
+            <code class="mark">&lt;div&gt;</code>
+            <code class="mark">  &lt;p&gt;</code>
+            <code class="mark">    Какой-то текст</code>
+            <code class="mark">  &lt;/p&gt;</code>
+            <code class="mark">&lt;/div&gt;</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            .site-link--code pre code {
+                font-size: 18px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-html-code-03">
+        <h2>Ошибочный пример вложенности:</h2>
+        <pre>
+            <code class="mark">&lt;div&gt;</code>
+            <code class="mark">  &lt;p&gt;</code>
+            <code class="mark">    Какой-то текст</code>
+            <code class="mark">  <mark class="important">&lt;/div&gt;</mark></code>
+            <code class="mark"><mark class="important">&lt;/p&gt;</mark></code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            .site-link--code pre code {
+                font-size: 18px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  slide-html" id="slide-html-03">
+        <h2>Атрибуты:</h2>
+        <ol>
+            <li>Все атрибуты пишутся внутри открытого тега.</li>
+        </ol>
+        <!-- <p class="next">А теперь давайте посмотрим, как это можно реализовать.</p> -->
+
+        <style>
+            .slide-html li {
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+            
+            .slide-html p {
+                color: #999;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-html-code-04">
+        <h2>Добавление атрибута:</h2>
+        <pre>
+            <code class="mark">&lt;тег атрибут=”значение” атрибут2=”значение” атрибут3=”значение”&gt;</code>
+            <code class="mark">&lt;img src=”#” width=”10” height=”10” class=”class-01”&gt;</code>
+            <code> </code>
+            <code class="mark">&lt;тег атрибут=”значение”&gt; &lt;/тег&gt;</code>
+            <code class="mark">&lt;div class=”class-02”&gt; &lt;/тег&gt;</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            .site-link--code pre code {
+                font-size: 18px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  slide-html" id="slide-html-04">
+        <h2>Где проверить на вложенность?</h2>
+        <ol>
+            <li>
+                <a href="https://yoksel.github.io/html-tree/" target="_blank">html-tree</a> - проверка на вложенность
+            </li>
+        </ol>
+        <!-- <p class="next ">А теперь давайте посмотрим, как это можно реализовать.</p> -->
+
+        <style>
+            .slide-html li {
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+            
+            .slide-html p {
+                color: #999;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-html-img-03">
+        <figure>
+            <img class="cover cover__promo" src="pictures/html/3.png">
+        </figure>
+    </section>
+
+    <section class="slide" id="slide-html-img-04">
+        <figure>
+            <img class="cover cover__promo" src="pictures/html/4.png">
+        </figure>
+    </section>
+
+    <section class="slide" id="slide-html-img-05">
+        <figure>
+            <img class="cover cover__promo" src="pictures/html/5.gif">
+        </figure>
+    </section>
+
+    <section class="slide  slide-html" id="slide-html-05">
+        <h2>Где увидеть список тегов?</h2>
+        <ol>
+            <li>
+                <a href="https://html5book.ru/html-tags/" target="_blank">html-tags</a> - список html тегов
+            </li>
+            <li class="next">
+                Но чаще всего встречаются: div, p, section, h1-h6, style, strong, b, i и т.д.
+            </li>
+        </ol>
+        <!-- <p class="next ">А теперь давайте посмотрим, как это можно реализовать.</p> -->
+
+        <style>
+            .slide-html li {
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+            
+            .slide-html p {
+                color: #999;
+            }
+        </style>
+    </section>
+
+    <section class="slide  slide-css" id="slide-css-01">
+        <h2 class="shout grow">CSS - язык описания<br>внешнего вида.</h2>
+
+        <figure>
+            <img class="cover cover__promo" src="pictures/cover-css.jpg">
+        </figure>
+
+        <style>
+            .slide-css .shout {
+                font-size: 95px;
+            }
+            
+            #slide-css-01 {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            #slide-css-01 img.cover__promo {
+                filter: brightness(0.6);
+            }
+            
+            #slide-css-01 h2 {
+                margin: 0 0 0;
+                color: white;
+                text-align: center;
+                text-shadow: 0 0 20px black;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-css-code-01">
+        <h2>Стандартная конструкция описания стилей:</h2>
+        <pre>
+            <code>селектор {</code>
+            <code>  свойство: значение;</code>
+            <code>  свойство: значение;</code>
+            <code>  свойство: значение;</code>
+            <code>  свойство: значение;</code>
+            <code>  и т.д.</code>
+            <code>}</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            .site-link--code pre code {
+                font-size: 18px;
+            }
+            
+            #slide-css-code-01::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  slide-html" id="slide-css-02">
+        <h2>Селекторами могут являться:</h2>
+        <ol>
+            <li>tag (тег)</li>
+            <li class="next">class (класс)</li>
+            <li class="next">id (идентификатор)</li>
+            <li class="next">даже можно по атрибутам искать</li>
+        </ol>
+        <!-- <p class="next ">А теперь давайте посмотрим, как это можно реализовать.</p> -->
+
+        <style>
+            .slide-html li {
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+            
+            .slide-html p {
+                color: #999;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-css-code-02">
+        <h2>Селектор - тег</h2>
+        <pre>
+            <code class="mark">тег {</code>
+            <code>  свойство: значение;</code>
+            <code>}</code>
+            <code> </code>
+            <code class="mark">div {</code>
+            <code>  background: #ffffff;</code>
+            <code>}</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            .site-link--code pre code {
+                font-size: 18px;
+            }
+            
+            #slide-css-code-01::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-css-code-03">
+        <h2>Селектор - атрибут</h2>
+        <pre>
+            <code class="mark">[атрибут="значение"] {</code>
+            <code>  свойство: значение;</code>
+            <code>}</code>
+            <code> </code>
+            <code class="mark">[width="10"] {</code>
+            <code>  background: #ffffff;</code>
+            <code>}</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            .site-link--code pre code {
+                font-size: 18px;
+            }
+            
+            #slide-css-code-01::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-css-code-04">
+        <h2>Селектор - класс</h2>
+        <pre>
+            <code class="mark">.название-класса {</code>
+            <code>  свойство: значение;</code>
+            <code>}</code>
+            <code> </code>
+            <code class="mark">.classname-01 {</code>
+            <code>  background: #ffffff;</code>
+            <code>}</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            .site-link--code pre code {
+                font-size: 18px;
+            }
+            
+            #slide-css-code-01::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-css-code-05">
+        <h2>Селектор - идентификатор</h2>
+        <pre>
+            <code class="mark">#идентификатор {</code>
+            <code>  свойство: значение;</code>
+            <code>}</code>
+            <code> </code>
+            <code class="mark">#id-01 {</code>
+            <code>  background: #ffffff;</code>
+            <code>}</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            .site-link--code pre code {
+                font-size: 18px;
+            }
+            
+            #slide-css-code-01::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-css-code-06">
+        <h2>Селектор - микс, тег + атрибут</h2>
+        <pre>
+            <code class="mark">тег[атрибут="значение"] {</code>
+            <code>  свойство: значение;</code>
+            <code>}</code>
+            <code> </code>
+            <code class="mark">div[data-attr="first"] {</code>
+            <code>  background: #ffffff;</code>
+            <code>}</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            .site-link--code pre code {
+                font-size: 18px;
+            }
+            
+            #slide-css-code-01::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-css-code-07">
+        <h2>Селектор - микс, класс + атрибут</h2>
+        <pre>
+            <code class="mark">.название-класса[атрибут="значение"] {</code>
+            <code>  свойство: значение;</code>
+            <code>}</code>
+            <code> </code>
+            <code class="mark">.classname-01[data-attr="first"] {</code>
+            <code>  background: #ffffff;</code>
+            <code>}</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            .site-link--code pre code {
+                font-size: 18px;
+            }
+            
+            #slide-css-code-01::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-css-code-08">
+        <h2>Селектор - микс, идентификатор + атрибут</h2>
+        <pre>
+            <code class="mark">#идентификатор[атрибут="значение"] {</code>
+            <code>  свойство: значение;</code>
+            <code>}</code>
+            <code> </code>
+            <code class="mark">#id-01[data-attr="first"] {</code>
+            <code>  background: #ffffff;</code>
+            <code>}</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            .site-link--code pre code {
+                font-size: 18px;
+            }
+            
+            #slide-css-code-08::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-css-code-09">
+        <h2>Селектор - микс, тег + класс</h2>
+        <pre>
+            <code class="mark">тег.название-класса {</code>
+            <code>  свойство: значение;</code>
+            <code>}</code>
+            <code> </code>
+            <code class="mark">div.classname-01 {</code>
+            <code>  background: #ffffff;</code>
+            <code>}</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            .site-link--code pre code {
+                font-size: 18px;
+            }
+            
+            #slide-css-code-01::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-css-code-10">
+        <h2>Если свойства CSS одинаковые, то селекторы можно перечислять через запятую, а именно:</h2>
+        <pre>
+            <code class="mark">селектор,</code>
+            <code class="mark">селектор,</code>
+            <code class="mark">селектор {</code>
+            <code>  свойство: значение;</code>
+            <code class="mark">}</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            .site-link--code pre code {
+                font-size: 18px;
+            }
+            
+            #slide-css-code-10::after {
+                left: 20px;
+            }
+            
+            #slide-css-code-10 h2 {
+                font-size: 40px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-css-code-11">
+        <h2>Живой пример:</h2>
+        <pre>
+            <code class="mark">.f-subheader,</code>
+            <code class="mark">.f-header,</code>
+            <code class="mark">.f-description {</code>
+            <code>  font-family: ‘Roboto’;</code>
+            <code>  font-size: 16px;</code>
+            <code>  color: #000;</code>
+            <code class="mark">}</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            .site-link--code pre code {
+                font-size: 18px;
+            }
+            
+            #slide-css-code-10::after {
+                left: 20px;
+            }
+            
+            #slide-css-code-10 h2 {
+                font-size: 40px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-css-code-12">
+        <h2>Это тоже самое, что и:</h2>
+        <pre>
+            <code class="mark">.f-subheader {</code>
+            <code>  font-family: ‘Roboto’;</code>
+            <code>  font-size: 16px;</code>
+            <code>  color: #000;</code>
+            <code>}</code>
+            <code> </code>
+            <code class="mark">.f-header {</code>
+            <code>  font-family: ‘Roboto’;</code>
+            <code>  font-size: 16px;</code>
+            <code>  color: #000;</code>
+            <code>}</code>
+            <code> </code>
+            <code class="mark">.f-description {</code>
+            <code>  font-family: ‘Roboto’;</code>
+            <code>  font-size: 16px;</code>
+            <code>  color: #000;</code>
+            <code>}</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            .site-link--code pre code {
+                font-size: 18px;
+            }
+            
+            #slide-css-code-10::after {
+                left: 20px;
+            }
+            
+            #slide-css-code-12 pre code {
+                font-size: 11px;
+            }
+            
+            #slide-css-code-10 h2 {
+                font-size: 40px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  slide-html" id="slide-css-03">
+        <h2>Почему в цвете я указал значение из 3 цифр, а не из 6?</h2>
+        <ol>
+            <li>Давайте посмотрим на простой пример, возьмём цвет #ff00ff;</li>
+            <li class="next">Теперь разделим на 3 части;</li>
+            <li class="next">Получим ff / 00 / ff ;</li>
+            <li class="next">В каждой части, после первого символа, следующий повторяется;</li>
+            <li class="next">И тогда можно сократить, где получим f0f и сам цвет #f0f</li>
+
+        </ol>
+        <!-- <p class="next ">А теперь давайте посмотрим, как это можно реализовать.</p> -->
+
+        <style>
+            .slide-html li {
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+            
+            .slide-html p {
+                color: #999;
+            }
+            
+            #slide-css-03 h2 {
+                font-size: 40px;
+            }
+            
+            #slide-css-03::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-css-code-13">
+        <h2>Классы в тегах можно миксовать, такое часто можно увидеть на Геткурс:</h2>
+        <pre>
+            <code>Один класс говорит о том, что это какой-то заголовок.</code>
+            <code>А второй о том, что размер будет 52</code>
+            <code> </code>
+            <code class="mark">&lt;div class="<mark class="important">f-header</mark>  <mark class="important">f-header-52</mark>"&gt; какой-то текст &lt;/div&gt;</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            .site-link--code pre code {
+                font-size: 18px;
+            }
+            
+            #slide-css-code-10::after {
+                left: 20px;
+            }
+            
+            #slide-css-code-12 pre code {
+                font-size: 11px;
+            }
+            
+            #slide-css-code-10 h2 {
+                font-size: 40px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-01">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/1.png">
+        </figure>
+    </section>
+
+    <section class="slide" id="slide-css-img-02">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/2.png">
+        </figure>
+    </section>
+
+    <section class="slide  slide-html" id="slide-css-04">
+        <h2>Зачем 2 класса?</h2>
+        <ol>
+            <li>Первый - основной класс;</li>
+            <li class="next">Второй - модификатор;
+                <ul>
+                    <li class="next">Если вы установите в конструкторе другой размер у заголовка, то <br>f-header-52 пропадёт;</li>
+                    <li class="next">И появится новый;</li>
+                    <li class="next">А первый класс останется прежним.</li>
+                </ul>
+            </li>
+
+        </ol>
+        <!-- <p class="next ">А теперь давайте посмотрим, как это можно реализовать.</p> -->
+
+        <style>
+            .slide-html li {
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+            
+            .slide-html p {
+                color: #999;
+            }
+            
+            #slide-css-03 h2 {
+                font-size: 40px;
+            }
+            
+            #slide-css-03::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-03">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/3.png">
+        </figure>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-css-code-14">
+        <h2>Селектор - микс, несколько классов</h2>
+        <pre>
+            <code class="mark">.название-класса-1.название-класса-рядом-1 {</code>
+            <code>  свойство: значение;</code>
+            <code>}</code>
+            <code> </code>
+            <code class="mark">.f-header.f-header-36 {</code>
+            <code>  background: #ffffff;</code>
+            <code>}</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            .site-link--code pre code {
+                font-size: 18px;
+            }
+            
+            #slide-css-code-01::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  slide-html" id="slide-css-05">
+        <h2>Но если:</h2>
+        <ol>
+            <li>Один из этих классов не будет у элемента, то стили не применятся;</li>
+            <li class="next">Поэтому используйте основной.</li>
+        </ol>
+        <!-- <p class="next ">А теперь давайте посмотрим, как это можно реализовать.</p> -->
+
+        <style>
+            .slide-html li {
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+            
+            .slide-html p {
+                color: #999;
+            }
+            
+            #slide-css-03 h2 {
+                font-size: 40px;
+            }
+            
+            #slide-css-03::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  slide-html" id="slide-css-06">
+        <h2>Представим!</h2>
+        <ol>
+            <li>Что, если если у нас будет много заголовков;</li>
+            <li class="next">И мы по классу .f-header заменим цвет на красный!</li>
+        </ol>
+        <!-- <p class="next ">А теперь давайте посмотрим, как это можно реализовать.</p> -->
+
+        <style>
+            .slide-html li {
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+            
+            .slide-html p {
+                color: #999;
+            }
+            
+            #slide-css-03 h2 {
+                font-size: 40px;
+            }
+            
+            #slide-css-03::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-04">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/4.png">
+        </figure>
+    </section>
+
+    <section class="slide" id="slide-css-img-05">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/5.png">
+        </figure>
+    </section>
+
+    <section class="slide" id="slide-css-img-06">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/6.png">
+        </figure>
+    </section>
+
+    <section class="slide" id="slide-css-img-07">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/7.png">
+        </figure>
+    </section>
+
+    <section class="slide" id="slide-css-img-08">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/8.png">
+        </figure>
+    </section>
+
+    <section class="slide" id="slide-css-img-09">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/9.gif">
+        </figure>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-css-code-15">
+        <h2>!IMPORTANT</h2>
+        <pre>
+            <code class="mark">!important - это способ усилить специфичность вашего селектора</code>
+            <code>специфичность мы разбирать не будем, про это будет статья</code>
+            <code>просто знайте, что !important может усилить её</code>
+            <code>если вы верстаете не на конструкторе, типо Геткурс, данное свойство применять - дурной тон</code>
+            <code class="mark">Лучше всего разобраться в специфичности селекторов.</code>
+            <code> </code>
+            <code>.f-header {</code>
+            <code class="mark">  color: red  <mark class="important">!important</mark>;</code>
+            <code>}</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            #slide-css-code-15 pre code {
+                font-size: 16px;
+            }
+            
+            #slide-css-code-01::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  slide-html" id="slide-css-07">
+        <h2>А теперь давайте вспомним заставку HTML и по ней составим селекторы</h2>
+        <ol>
+            <li>Посмотрим структуру;</li>
+            <li class="next">На русском языке опишем возможные пути до пункта "Сцепление";</li>
+            <li class="next">Сделаем это на языке, который понимает браузер.</li>
+        </ol>
+        <p class="next ">Названия классов я взял просто переведя с русского на английский язык</p>
+
+        <style>
+            .slide-html li {
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+            
+            .slide-html p {
+                color: #999;
+            }
+            
+            #slide-css-07 h2 {
+                font-size: 40px;
+            }
+            
+            #slide-css-07::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-10">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/10.jpg">
+        </figure>
+    </section>
+
+    <section class="slide" id="slide-css-img-11">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/11.png">
+        </figure>
+    </section>
+
+    <section class="slide" id="slide-css-img-12">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/12.png">
+        </figure>
+    </section>
+
+    <section class="slide" id="slide-css-img-13">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/13.png">
+        </figure>
+
+        <style>
+            #slide-css-img-13::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  slide-html" id="slide-css-08">
+        <h2>Как же всё-такие обратиться к нужному заголовку?</h2>
+        <ol>
+            <li>Добавить стили внутрь блока;
+                <ul>
+                    <li class="next">Если заголовков в данном блоке будет несколько, то стили применятся ко всем в этом блоке</li>
+                </ul>
+            </li>
+            <li class="next">Добавить уникальный класс
+                <ul>
+                    <li class="next">Тогда нам можно будет не беспокоиться о том, что какой-то заголовок перекрасится;</li>
+                    <li class="next">Покрасится только тот, который нужен.</li>
+                </ul>
+            </li>
+        </ol>
+        <p class="next ">Давайте рассмотрим на примере</p>
+
+        <style>
+            .slide-html li {
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+            
+            .slide-html p {
+                color: #999;
+            }
+            
+            #slide-css-08 h2 {
+                font-size: 40px;
+            }
+            
+            #slide-css-08::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-14">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/14.png">
+        </figure>
+
+        <style>
+            #slide-css-img-14::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-15">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/15.png">
+        </figure>
+
+        <style>
+            #slide-css-img-15::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-16">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/16.png">
+        </figure>
+
+        <style>
+            #slide-css-img-16::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-17">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/17.png">
+        </figure>
+
+        <style>
+            #slide-css-img-17::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-18">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/18.png">
+        </figure>
+
+        <style>
+            #slide-css-img-18::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-19">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/19.gif">
+        </figure>
+
+        <style>
+            #slide-css-img-19::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-20">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/20.png">
+        </figure>
+
+        <style>
+            #slide-css-img-20::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-21">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/21.png">
+        </figure>
+
+        <style>
+            #slide-css-img-21::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-22">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/22.png">
+        </figure>
+
+        <style>
+            #slide-css-img-22::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-23">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/23.png">
+        </figure>
+
+        <style>
+            #slide-css-img-23::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-24">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/24.png">
+        </figure>
+
+        <style>
+            #slide-css-img-24::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-25">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/25.png">
+        </figure>
+
+        <style>
+            #slide-css-img-25::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-26">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/26.png">
+        </figure>
+
+        <style>
+            #slide-css-img-26::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-27">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/27.png">
+        </figure>
+
+        <style>
+            #slide-css-img-27::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-28">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/28.png">
+        </figure>
+
+        <style>
+            #slide-css-img-28::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-29">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/29.png">
+        </figure>
+
+        <style>
+            #slide-css-img-29::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-30">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/30.png">
+        </figure>
+
+        <style>
+            #slide-css-img-30::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  slide-html" id="slide-css-09">
+        <h2>CSS Selectors</h2>
+        <ol>
+            <li>Селекторы - очень тонкая штука, про них действительно можно очень много сказать.
+                <ul>
+                    <li class="next">Например, что у них есть разные состояния</li>
+                    <li class="next">Псевдоэлементы</li>
+                    <li class="next">Псевдоклассы - про это мы сегодня поговорим</li>
+                </ul>
+            </li>
+        </ol>
+
+        <style>
+            .slide-html li {
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+            
+            .slide-html p {
+                color: #999;
+            }
+            
+            #slide-css-08 h2 {
+                font-size: 40px;
+            }
+            
+            #slide-css-08::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  slide-html" id="slide-css-10">
+        <h2>Представим ситуацию на Геткурс!</h2>
+        <ol>
+            <li>У нас есть блок 3 колонки</li>
+            <li class="next">А стилизовать нужно лишь вторую</li>
+            <li class="next">Тут и можно использовать один из таких псевдоклассов :nth-child(n).</li>
+        </ol>
+
+        <style>
+            .slide-html li {
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+            
+            .slide-html p {
+                color: #999;
+            }
+            
+            #slide-css-08 h2 {
+                font-size: 40px;
+            }
+            
+            #slide-css-08::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  slide-html" id="slide-css-11">
+        <h2>Как это может выглядеть?</h2>
+        <ol>
+            <li>Найдём путь до 3х колонок, с указанием их общего контейнера</li>
+            <li class="next">Добавим псевдокласс nth-child(n), где n - это номер колонки</li>
+            <li class="next">И стилизуем её!</li>
+        </ol>
+
+        <p class="next">Но для начала посмотрим на конструкцию в целом.</p>
+
+        <style>
+            .slide-html li {
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+            
+            .slide-html p {
+                color: #999;
+            }
+            
+            #slide-css-08 h2 {
+                font-size: 40px;
+            }
+            
+            #slide-css-08::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-css-code-16">
+        <h2>ПСЕВДОКЛАССЫ!</h2>
+        <pre>
+            <code class="mark">.уникальный-класс .родитель .колонки:псевдокласс(номер колонки) {</code>
+            <code>  свойство: "значение";</code>
+            <code class="mark">}</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            #slide-css-code-15 pre code {
+                font-size: 16px;
+            }
+            
+            #slide-css-code-01::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-31">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/31.png">
+        </figure>
+
+        <style>
+            #slide-css-img-31::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-32">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/32.png">
+        </figure>
+
+        <style>
+            #slide-css-img-32::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-33">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/33.png">
+        </figure>
+
+        <style>
+            #slide-css-img-33::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  site-link--code" id="slide-css-code-17">
+        <h2>PSEUDOCLASSES!</h2>
+        <pre>
+            <code class="mark">.why-course-01 .row .lt-col:nth-child(2) {</code>
+            <code>  background: red;</code>
+            <code class="mark">}</code>
+        </pre>
+
+        <style>
+            .site-link--code pre mark {
+                z-index: 1;
+            }
+            
+            #slide-css-code-15 pre code {
+                font-size: 16px;
+            }
+            
+            #slide-css-code-01::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-34">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/34.png">
+        </figure>
+
+        <style>
+            #slide-css-img-34::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-35">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/35.png">
+        </figure>
+
+        <style>
+            #slide-css-img-35::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-36">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/36.png">
+        </figure>
+
+        <style>
+            #slide-css-img-33::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  slide-html" id="slide-css-12">
+        <h2>Что случилось? Почему цвет не поменялся?</h2>
+        <ol>
+            <li>Дело в том, что когда мы добавлям наш код в CSS самого блока. То стили применяется уже к уникальному ID, который добавляет Геткурс.</li>
+        </ol>
+
+        <style>
+            .slide-html li {
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+            
+            .slide-html p {
+                color: #999;
+            }
+            
+            #slide-css-12 h2 {
+                font-size: 40px;
+            }
+            
+            #slide-css-12::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-37">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/37.png">
+        </figure>
+
+        <style>
+            #slide-css-img-37::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-38">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/38.png">
+        </figure>
+
+        <style>
+            #slide-css-img-38::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-39">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/39.png">
+        </figure>
+
+        <style>
+            #slide-css-img-39::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  slide-html" id="slide-css-13">
+        <h2>А зачем мы добавляли класс?</h2>
+        <ol>
+            <li>Чтобы задать уникальность блоку, например, если вы все стили добавите вне этого блока, как на примере дальше.</li>
+        </ol>
+
+        <style>
+            .slide-html li {
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+            
+            .slide-html p {
+                color: #999;
+            }
+            
+            #slide-css-13 h2 {
+                font-size: 40px;
+            }
+            
+            #slide-css-13::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-40">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/40.png">
+        </figure>
+
+        <style>
+            #slide-css-img-40::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-41">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/41.png">
+        </figure>
+
+        <style>
+            #slide-css-img-41::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-42">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/42.png">
+        </figure>
+
+        <style>
+            #slide-css-img-42::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-43">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/43.gif">
+        </figure>
+
+        <style>
+            #slide-css-img-43::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-44">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/44.png">
+        </figure>
+
+        <style>
+            #slide-css-img-44::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-45">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/45.gif">
+        </figure>
+
+        <style>
+            #slide-css-img-45::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-46">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/46.png">
+        </figure>
+
+        <style>
+            #slide-css-img-46::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-47">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/47.png">
+        </figure>
+
+        <style>
+            #slide-css-img-47::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-48">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/48.png">
+        </figure>
+
+        <style>
+            #slide-css-img-48::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-49">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/49.png">
+        </figure>
+
+        <style>
+            #slide-css-img-49::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-css-img-50">
+        <figure>
+            <img class="cover cover__promo" src="pictures/css/50.png">
+        </figure>
+
+        <style>
+            #slide-css-img-50::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  slide-html" id="slide-css-14">
+        <figure>
+            <img style="display: block;margin: 0 auto;" class="" src="pictures/cover-fish.jpg" width="300px">
+        </figure>
+
+        <h2>Какая гадость <i style="text-decoration: line-through; color: #999">эта ваша заливная рыба</i> эти ваши селекторы!</h2>
+        <ol>
+            <li>Ничего страшного, с практикой вы запомните многие вещи и сможете сами их применять :)</li>
+        </ol>
+
+        <style>
+            .slide-html li {
+                line-height: 1.3;
+                margin-bottom: 20px;
+                /* color: #fff; */
+                /* color: #fff;
+                text-shadow: 0 0 4px black; */
+            }
+            
+            .slide-html p {
+                /* color: #fff; */
+                /* color: #fff;
+                text-shadow: 0 0 4px black; */
+            }
+            
+            #slide-css-14 h2 {
+                font-size: 36px;
+                /* color: #fff; */
+                /* text-shadow: 0 0 4px black; */
+                /* color: #fff; */
+            }
+            
+            #slide-css-14::after {
+                left: 20px;
+            }
+            
+            #slide-css-14 .cover {
+                /* filter: brightness(.5) */
+            }
+        </style>
+    </section>
+
+    <section class="slide  slide-html" id="slide-css-15">
+        <h2>Какие состояния и ещё псевдоклассы существуют?</h2>
+        <ol>
+            <li>Их очень много, про все я говорить не буду, но разберём основные;</li>
+            <li class="next">Состояния:
+                <ul>
+                    <li class="next">:hover - наведение по элементу</li>
+                    <li class="next">:active - нажатие</li>
+                    <li class="next">:focus - фокус по элементу</li>
+                    <li class="next">:disabled - заблокированное состояние (например, если кнопка не является активной)</li>
+                </ul>
+            </li>
+
+            <li class="next">Больше псевдоклассов!
+                <ul>
+                    <li class="next">:first-child - первый элемент</li>
+                    <li class="next">:last-child - последний элемент</li>
+                    <li class="next">:nth-child(n) - выбранный вами элемент, где n - его номер</li>
+                </ul>
+            </li>
+        </ol>
+
+        <p class="next" style="color: #999">И это ещё не весь список!</p>
+
+        <style>
+            #slide-css-15 li {
+                line-height: 1.2;
+                margin-bottom: 10px;
+                font-size: 15px;
+            }
+            
+            #slide-css-15 p {
+                color: #999;
+            }
+            
+            #slide-css-15 h2 {
+                font-size: 40px;
+            }
+            
+            #slide-css-15::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide  slide-practics" id="slide-practics-01">
+        <h2 class="shout grow">Практика!</h2>
+
+        <figure>
+            <img class="cover cover__promo" src="pictures/cover-practics.png">
+        </figure>
+
+        <style>
+            .slide-practics .shout {
+                font-size: 125px;
+            }
+            
+            #slide-practics-01 {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            #slide-practics-01 img.cover__promo {
+                filter: brightness(0.8);
+            }
+            
+            #slide-practics-01 h2 {
+                margin: 0 0 0;
+                color: white;
+                text-align: center;
+                text-shadow: 0 0 20px black;
+            }
+        </style>
+    </section>
+
+    <section class="slide  slide-html" id="slide-practics-02">
+        <h2>Какой формат практики?</h2>
+        <ol>
+            <li>Перейдём на <a href="https://codepen.io/" target="_blank">codepen.io</a> и попишем код там для повторения пройденного материала;</li>
+            <li class=next>И попробуем что-нибудь постилизовать уже на Геткурс.</li>
+        </ol>
+
+        <style>
+            .slide-html li {
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+            
+            .slide-html p {
+                color: #999;
+            }
+            
+            #slide-css-12 h2 {
+                font-size: 40px;
+            }
+            
+            #slide-css-12::after {
+                left: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-practics-img-1">
+        <figure>
+            <img class="cover cover__promo" src="pictures/practics/1.png">
+        </figure>
+
+        <style>
+            #slide-practics-img-1::after {
+                /* left: 20px; */
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="slide-practics-img-2">
+        <figure>
+            <img class="cover cover__promo" src="pictures/practics/2.png">
+        </figure>
+
+        <style>
+            #slide-practics-img-2::after {
+                /* left: 20px; */
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="results-list">
+        <h2>Итоги:</h2>
+        <ol>
+            <li>Поговорили о базовых конструкциях HTML / CSS</li>
+            <li class="next">Разобрались, что такое селекторы</li>
+            <li class="next">Посмотрели, как можно добавлять стили нужному элементу</li>
+            <li class="next">Познакмились с онлайн-редактором codepen.io</li>
+            <li class="next">И применили знания на практике</li>
+        </ol>
+
+        <style>
+            #results-list li {
+                font-size: 17px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="dop-list">
+        <h2>Дополнительные материалы:</h2>
+        <ol>
+            <li><a href="https://yoksel.github.io/html-tree/" target="_blank">html-tree</a> - "Генератор HTML-дерева"</li>
+            <li><a href="http://css.yoksel.ru/specifity/" target="_blank">specifity selectors</a> - "Сколько весят селекторы?"</li>
+            <li><a href="https://html5book.ru/html-tags/" target="_blank">html-tags</a> - "Список HTML тегов"</li>
+            <li><a href="https://html5book.ru/css-spravochnik.html/" target="_blank">css-properties</a> - "CSS свойства"</li>
+            <li><a href="https://codepen.io/" target="_blank">codepen</a> - "Онлайн-редактор кода"</li>
+        </ol>
+
+        <p class="next"><mark class="important">Если будут вопросы - пишите :)</mark></p>
+
+        <style>
+            #dop-list li {
+                font-size: 17px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="end-01">
+        <h2 class="shout grow">Пока!</h2>
+
+        <figure>
+            <img class="cover cover__promo" src="pictures/end-01.jpg">
+        </figure>
+        <style>
+            #end-01 {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            #end-01 h2 {
+                margin: 0 0 0;
+                color: white;
+                text-align: center;
+                font-size: 140px;
+                text-shadow: 0 0 20px black;
+            }
+            
+            #end-01 p {
+                margin: 10px 0 0;
+                text-align: center;
+                color: white;
+                font-style: italic;
+                font-size: 20px;
+                text-shadow: 0 0 20px black;
+            }
+            
+            #end-01 p a {
+                color: white;
+            }
+            
+            #end-01 img.cover__promo {
+                filter: brightness(0.6);
+            }
+        </style>
+    </section>
+
+    <footer class="badge ">
+        <a href="https://telegram.me/ivan_main ">Написать автору</a>
+    </footer>
+
+    <div class="progress "></div>
+
+    <script src="shower/shower.js "></script>
+</body>
+
+</html>
